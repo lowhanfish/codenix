@@ -37,7 +37,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="shadow-md px-1 sm:px-5 md:px-10 lg:px-50 fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg">
+        <nav className="shadow-md px-1 sm:px-10 lg:px-40 fixed top-0 left-0 w-full z-50 border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg">
             <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-2xl font-bold text-blue-600 dark:text-blue-400">

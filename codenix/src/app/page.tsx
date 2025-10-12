@@ -5,35 +5,32 @@ import Footer from "../components/Footer.jsx";
 
 export default function Home() {
   return (
-    <div className="font-sans grid min-h-screen pt-25 px-4 sm:px-8 lg:px-20 xl:px-32">
+    <div className="font-sans grid min-h-screen pt-25 px-4 sm:px-8 lg:px-10 xl:px-20">
       <Navbar />
       <main className="flex flex-col sm:px-10 md:px-25">
-        <div className="flex flex-wrap">
-          <div className="flex flex-1 ">
-            <div>
-              <div className="antialiased text-lg text-gray-400 font-semibold">THE NEW CREATIVE ECONOMY</div>
-              <div className="antialiased text-6xl font-bold text-gray-900">Share your creations with the world</div>
-              <div className="font-light text-gray-500">Collect and sell digital art, powered by the best online tools.</div>
-              <div></div>
+        <div className=" flex flex-wrap flex-col md:flex-col lg:flex-row">
+          <div className="flex flex-1">
+            <div className="flex flex-col justify-center align-middle text-center lg:text-left">
+              <div className="antialiased text-lg text-gray-500 font-semibold">THE NEW CREATIVE ECONOMY</div>
+              <div className="antialiased text-5xl md:text-6xl font-bold text-gray-500">Share your creations with the world</div>
+              <div className="font-light text-gray-500 pt-5">Collect and sell digital art, powered by the best online tools.</div>
             </div>
           </div>
-          <div className="flex flex-1 justify-center items-center flex-wrap">
+          <div className="flex flex-1/6 justify-center items-center">
 
             <img
-              className="max-w-full h-auto"
+              className=""
               src="/banner2.png"
-              width={1000}
               alt=""
             />
-
-
-            {/* <Image alt=""
-              className="h-auto"
-              fill
-              style={{ borderWidth: 3, borderColor: 'red', }}
-              src="https://static.vecteezy.com/system/resources/previews/021/707/022/non_2x/isometric-flat-3d-illustration-concept-of-technology-transformation-digital-button-free-vector.jpg" /> */}
           </div>
         </div>
+
+
+
+
+
+
       </main>
       {/* <Footer /> */}
     </div>
