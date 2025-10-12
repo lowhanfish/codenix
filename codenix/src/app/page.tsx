@@ -8,11 +8,14 @@ export default function Home() {
     <div className="font-sans grid min-h-screen pt-25 px-4 sm:px-8 lg:px-10 xl:px-20">
       <Navbar />
       <main className="flex flex-col sm:px-10 md:px-25">
-        <div className=" flex flex-wrap flex-col md:flex-col lg:flex-row">
-          <div className="flex flex-1">
+
+
+
+        <div className=" flex flex-wrap flex-col md:flex-col lg:flex-row scroll-zoom animate-bounce">
+          <div className="flex flex-1 scroll-fade max-w-full h-auto rounded-lg">
             <div className="flex flex-col justify-center align-middle text-center lg:text-left">
-              <div className="antialiased text-lg text-gray-500 font-semibold">THE NEW CREATIVE ECONOMY</div>
-              <div className="antialiased text-5xl md:text-6xl font-bold text-gray-500">Share your creations with the world</div>
+              <div className="antialiased text-xs xl:text-base text-gray-500 font-semibold">EMPOWER YOUR BUSINESS WITH SMART SOFTWARE</div>
+              <div className="antialiased text-4xl xl:text-5xl font-bold text-gray-600 pt-2">We design and build custom web & mobile solutions</div>
               <div className="font-light text-gray-500 pt-5">Collect and sell digital art, powered by the best online tools.</div>
             </div>
           </div>
@@ -25,6 +28,11 @@ export default function Home() {
             />
           </div>
         </div>
+
+
+
+
+
 
 
 
