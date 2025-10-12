@@ -9,13 +9,9 @@ export default function Navbar() {
     const [darkMode, setDarkMode] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    // Sync theme with <html className="dark">
     useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
+        if (darkMode) document.documentElement.classList.add("dark");
+        else document.documentElement.classList.remove("dark");
     }, [darkMode]);
 
     const links = [
@@ -29,7 +25,13 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                    Codenix
+                    <Image
+                        src="/icon2.png"
+                        alt="Profile"
+                        width={60}
+                        height={60}
+                        className="full"
+                    />
                 </Link>
 
                 {/* Desktop menu */}
@@ -38,17 +40,18 @@ export default function Navbar() {
                         <li key={link.href}>
                             <Link
                                 href={link.href}
-                                className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
-                            >
+                                className="inline-block text-gray-500 text-sm dark:text-gray-200 
+             hover:text-sky-500 dark:hover:text-sky-400 
+             font-light transform transition-transform duration-300 ease-in-out 
+             hover:scale-110">
                                 {link.label}
                             </Link>
                         </li>
                     ))}
                 </ul>
 
-                {/* Right side */}
                 <div className="flex items-center gap-3">
-                    {/* Search bar (hidden on small screens) */}
+                    {/* Search (desktop) */}
                     <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 focus-within:ring-2 ring-blue-500 transition">
                         <Search size={18} className="text-gray-500" />
                         <input
@@ -58,20 +61,16 @@ export default function Navbar() {
                         />
                     </div>
 
-                    {/* Theme toggle */}
+                    {/* Toggle theme */}
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                         aria-label="Toggle theme"
                     >
-                        {darkMode ? (
-                            <Sun size={20} className="text-yellow-400" />
-                        ) : (
-                            <Moon size={20} className="text-gray-700 dark:text-gray-200" />
-                        )}
+                        {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-700 dark:text-gray-200" />}
                     </button>
 
-                    {/* Profile photo */}
+                    {/* Profile photo (desktop) */}
                     <button className="hidden sm:block rounded-full border-2 border-transparent hover:border-blue-500 transition">
                         <Image
                             src="https://i.pravatar.cc/40"
@@ -82,46 +81,42 @@ export default function Navbar() {
                         />
                     </button>
 
-                    {/* Hamburger menu (mobile only) */}
+                    {/* Hamburger menu (mobile) */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                     >
-                        {menuOpen ? (
-                            <X size={24} className="text-gray-700 dark:text-gray-200" />
-                        ) : (
-                            <Menu size={24} className="text-gray-700 dark:text-gray-200" />
-                        )}
+                        {menuOpen
+                            ? <X size={24} className="text-gray-700 dark:text-gray-200" />
+                            : <Menu size={24} className="text-gray-700 dark:text-gray-200" />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile menu */}
-            {menuOpen && (
-                <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-                    <ul className="flex flex-col items-start gap-3 px-6 py-4">
-                        {links.map((link) => (
-                            <li key={link.href}>
-                                <Link
-                                    href={link.href}
-                                    onClick={() => setMenuOpen(false)}
-                                    className="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium"
-                                >
-                                    {link.label}
-                                </Link>
-                            </li>
-                        ))}
-                        <li className="flex items-center gap-2 mt-3 w-full px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800">
-                            <Search size={18} className="text-gray-500" />
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                className="bg-transparent outline-none text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 flex-1"
-                            />
+            {/* Mobile menu dropdown */}
+            <div className={`${menuOpen ? "block" : "hidden"} md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800`}>
+                <ul className="flex flex-col px-6 py-4 gap-4">
+                    {links.map((link) => (
+                        <li key={link.href}>
+                            <Link
+                                href={link.href}
+                                onClick={() => setMenuOpen(false)}
+                                className="block text-gray-700 dark:text-gray-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium"
+                            >
+                                {link.label}
+                            </Link>
                         </li>
-                    </ul>
-                </div>
-            )}
+                    ))}
+                    <li className="flex items-center gap-2 mt-2 w-full px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <Search size={18} className="text-gray-500" />
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="bg-transparent outline-none text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 flex-1"
+                        />
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 }
