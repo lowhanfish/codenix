@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 
-const Foother = () => {
+const Footer = () => {
     return (
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
             <a
@@ -55,4 +55,4 @@ const Foother = () => {
 
 
 
-export default Foother
+export default Footer
