@@ -1,5 +1,9 @@
 "use client";
 
+// REFERENSI
+// https://cruip.com/
+
+
 import Image from "next/image";
 
 import Navbar from "../components/Navbar.jsx";
@@ -8,8 +12,8 @@ import ImageCarousel from "../components/ImageCarousel.jsx";
 
 export default function Home() {
   return (
-    <div className="font-sans grid min-h-screen pt-25">
-      <Navbar />
+    <div className="font-sans grid min-h-screen">
+      {/* <Navbar /> */}
       <main className="flex flex-col">
 
 
@@ -70,18 +74,6 @@ export default function Home() {
             <ImageCarousel />
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
       </main>
       {/* <Footer /> */}

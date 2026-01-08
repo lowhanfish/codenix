@@ -21,6 +21,7 @@ export default function Navbar() {
 
     // 🧩 Struktur menu — nested & fleksibel
     const links = [
+        { href: "/", label: "Home" },
         { href: "/discover", label: "Discover" },
         {
             label: "Create Item",
