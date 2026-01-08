@@ -37,8 +37,12 @@ export default function ImageCarousel() {
       <button
         onClick={prev}
         disabled={startIndex === 0}
-        className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md transition hover:scale-110 ${startIndex === 0 ? "opacity-30 cursor-not-allowed" : ""
+        className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full shadow-md transition hover:scale-110 ${startIndex === 0 ? "opacity-30 cursor-not-allowed" : ""
           }`}
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          color: 'var(--color-text)'
+        }}
       >
         <ChevronLeft size={24} />
       </button>
@@ -56,10 +60,14 @@ export default function ImageCarousel() {
               key={i}
               className="w-1/4 flex-shrink-0 flex flex-col items-center px-0 scale-90 hover:scale-100 transition-transform duration-300"
             >
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-xl 
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden border shadow-xl 
       before:absolute before:inset-x-6 before:-bottom-4 before:h-6 
       before:rounded-full before:bg-black/50 before:blur-lg before:content-[''] 
-      before:transition-all hover:before:opacity-20">
+      before:transition-all hover:before:opacity-20"
+                style={{
+                  borderColor: 'var(--color-border)'
+                }}
+              >
                 <Image
                   src={item.src}
                   alt={item.title}
@@ -67,7 +75,10 @@ export default function ImageCarousel() {
                   className="object-cover"
                 />
               </div>
-              <p className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
+              <p className="mt-2 text-sm font-medium text-center transition-colors duration-300"
+                style={{
+                  color: 'var(--color-text-secondary)'
+                }}>
                 {item.title}
               </p>
             </div>
@@ -79,13 +90,18 @@ export default function ImageCarousel() {
       <button
         onClick={next}
         disabled={startIndex + visibleCount >= items.length}
-        className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md transition hover:scale-110 ${startIndex + visibleCount >= items.length
+        className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full shadow-md transition hover:scale-110 ${startIndex + visibleCount >= items.length
           ? "opacity-30 cursor-not-allowed"
           : ""
           }`}
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          color: 'var(--color-text)'
+        }}
       >
         <ChevronRight size={24} />
       </button>
     </div>
   );
 }
+

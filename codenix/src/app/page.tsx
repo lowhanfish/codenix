@@ -15,18 +15,59 @@ export default function Home() {
         <div className=" flex flex-wrap flex-col md:flex-col lg:flex-row scroll-zoom animate-bounce px-10 md:px-25 lg:px-30 xl:px-45 py-20">
           <div className="flex justify-center flex-col flex-1 scroll-fade max-w-full h-auto rounded-lg">
             <div className="flex flex-col justify-center align-middle text-center lg:text-left">
-              <div className="antialiased text-xs xl:text-base text-gray-500 font-semibold">EMPOWER YOUR BUSINESS WITH SMART SOFTWARE</div>
-              <div className="antialiased text-4xl xl:text-5xl font-bold text-gray-600 pt-2">We design and build custom web & mobile solutions</div>
-              <div className="font-light text-gray-500 pt-5">Innovative. Scalable. Reliable.</div>
+              <div className="antialiased text-xs xl:text-base font-semibold transition-colors duration-300"
+                style={{ color: 'var(--color-text-tertiary)' }}>
+                EMPOWER YOUR BUSINESS WITH SMART SOFTWARE
+              </div>
+              <div className="antialiased text-4xl xl:text-5xl font-bold pt-2 transition-colors duration-300"
+                style={{ color: 'var(--color-text)' }}>
+                We design and build custom web & mobile solutions
+              </div>
+              <div className="font-light pt-5 transition-colors duration-300"
+                style={{ color: 'var(--color-text-tertiary)' }}>
+                Innovative. Scalable. Reliable.
+              </div>
             </div>
-            <div className="flex flex-row pt-10">
+            <div className="flex flex-col pt-10 lg:flex-row">
               <div>
-                <button className="p-2 w-40 border-1 font-semibold text-blue-400 border-blue-400 rounded-2xl transition duration-300 ease-in-out hover:bg-zinc-500 hover:text-white hover:border-transparent">
+                <button className="p-2 w-40 border-3 font-semibold rounded-2xl transition duration-300 ease-in-out hover:scale-105"
+                  style={{
+                    color: 'var(--color-text-secondary)',
+                    borderColor: 'var(--color-border-strong)',
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-surface-hover)';
+                    e.currentTarget.style.borderColor = 'var(--color-text-secondary)';
+                    e.currentTarget.style.color = 'var(--color-text)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.borderColor = 'var(--color-border-strong)';
+                    e.currentTarget.style.color = 'var(--color-text-secondary)';
+                  }}
+                >
                   Discover More
                 </button>
               </div>
               <div>
-                <button className="p-2 w-40 border-1 font-semibold text-blue-400 border-blue-400 rounded-2xl transition duration-300 ease-in-out hover:bg-blue-400 hover:text-white hover:border-transparent">
+                <button className="ml-3 p-2 w-40 border-3 font-semibold rounded-2xl transition duration-300 ease-in-out hover:scale-105"
+                  style={{
+                    color: 'var(--color-primary-500)',
+                    borderColor: 'var(--color-primary-300)',
+                    backgroundColor: 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-primary-500)';
+                    e.currentTarget.style.color = '#ffffff';
+                    e.currentTarget.style.borderColor = 'transparent';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--color-primary-500)';
+                    e.currentTarget.style.borderColor = 'var(--color-primary-300)';
+                  }}
+                >
                   Create Item
                 </button>
               </div>
@@ -35,15 +76,19 @@ export default function Home() {
           <div className="flex flex-1/6 justify-center items-center">
 
             <img
-              className=""
+              className="scale-100 hover:scale-110 transition-transform duration-500 random-move"
               src="/banner2.png"
               alt=""
             />
           </div>
         </div>
 
-        <div className="px-10 md:px-25 lg:px-30 xl:px-45 bg-gray-50 py-20">
-          <p className="text-4xl xl:text-5xl font-bold text-gray-600">Hot bid</p>
+        <div className="px-10 md:px-25 lg:px-30 xl:px-45 py-20 transition-colors duration-300"
+          style={{ backgroundColor: 'var(--color-background-alt)' }}>
+          <p className="text-4xl xl:text-5xl font-bold transition-colors duration-300"
+            style={{ color: 'var(--color-text)' }}>
+            Hot bid
+          </p>
           <div className="">
             <ImageCarousel />
           </div>
@@ -67,3 +112,4 @@ export default function Home() {
 
   );
 }
+
