@@ -2,12 +2,36 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="fixed bottom-0 w-full backdrop-blur-lg border-b shadow-lg translate-y-0 visible bg-surface/70 border-t-[0.1] border-neutral-400">
-            <div className="z-50">
-                <p className="w-full h-full">
-                    asdfasf
-                </p>
-
+        <footer className="w-full backdrop-blur-lg shadow-lg translate-y-0  bg-surface/70 z-50">
+            <div className="flex flex-row main-padding py-8">
+                <div className="flex-1">
+                    <p className="font-bold">Product</p>
+                    <p className="text-[12px] text-primary-500">Platform</p>
+                    <p className="text-[12px]">Integrations</p>
+                    <p className="text-[12px]">Solutions</p>
+                    <p className="text-[12px]">Pricing</p>
+                </div>
+                <div className="flex-1">
+                    <p className="font-bold">Product</p>
+                    <p className="text-[12px]">Platform</p>
+                    <p className="text-[12px]">Integrations</p>
+                    <p className="text-[12px]">Solutions</p>
+                    <p className="text-[12px]">Pricing</p>
+                </div>
+                <div className="flex-1">
+                    <p className="font-bold">Product</p>
+                    <p className="text-[12px]">Platform</p>
+                    <p className="text-[12px]">Integrations</p>
+                    <p className="text-[12px]">Solutions</p>
+                    <p className="text-[12px]">Pricing</p>
+                </div>
+                <div className="flex-1">
+                    <p className="font-bold">Product</p>
+                    <p className="text-[12px]">Platform</p>
+                    <p className="text-[12px]">Integrations</p>
+                    <p className="text-[12px]">Solutions</p>
+                    <p className="text-[12px]">Pricing</p>
+                </div>
             </div>
         </footer>
     )

@@ -9,8 +9,6 @@ type FolderProps = {
     folders?: FolderProps[]
 }
 
-
-
 const page = () => {
 
     let folders: FolderProps[] = [
@@ -46,12 +44,10 @@ const page = () => {
                         { name: "Data Aplikasi.docs" },
                         { name: "Data Aplikasi.docs" },
                     ]
-
                 }
             ]
         },
     ]
-
 
     return (
         <div className='main-layout'>
@@ -59,26 +55,19 @@ const page = () => {
                 <li className=''>
                     <ul className='pl-8'>
                         {
-
                             folders.map((data: FolderProps) => (
                                 <Fodersx key={data.name} data={data} />
                             ))
                         }
                     </ul>
-
                 </li>
             </ul>
         </div>
     )
 }
 
-
-
 const Fodersx = ({ data }: { data: FolderProps }) => {
-
-    const [isOpen, setIsOpen] = useState(false);
-
-
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <li key={data.name}>
@@ -86,35 +75,31 @@ const Fodersx = ({ data }: { data: FolderProps }) => {
                 {
                     data.folders ? (
                         <div onClick={() => { setIsOpen(!isOpen) }}>
-
                             {isOpen ? (
-                                <FolderOpen className='text-blue-600' />
+                                <FolderOpen className='text-primary' />
                             ) : (
-                                <Folder className='text-blue-600' />
-                            )
-
-                            }
-
+                                <Folder className='text-primary' />
+                            )}
                         </div>
                     ) : (
-                        <File className='text-gray-700' />
+                        <File className='text-secondary' />
                     )
                 }
-                <span className='pl-2'>{data.name}</span>
+                <span className='pl-2 text-foreground'>{data.name}</span>
             </div>
 
             {isOpen && (
                 <ul className='pl-8'>
                     {
-                        data.folders?.map((data) => (
-                            <Fodersx key={data.name} data={data} />
+                        data.folders?.map((subFolder) => (
+                            <Fodersx key={subFolder.name} data={subFolder} />
                         ))
                     }
                 </ul>
-
             )}
         </li>
     )
 }
 
 export default page
+

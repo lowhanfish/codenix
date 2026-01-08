@@ -1,426 +1,208 @@
 @import "tailwindcss";
 
-/* ============================================
-   COLOR SYSTEM - CodeNix
-   Centralized color management with dark mode
-   ============================================ */
+@custom-variant dark (&:is(.dark *));
 
-/* ===== PRIMARY COLOR PALETTE (Blue) ===== */
-:root {
-  /* Primary - Blue */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+@theme inline {
+  /* Semantic Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  /* Secondary - Sky */
-  --color-secondary-50: #f0f9ff;
-  --color-secondary-100: #e0f2fe;
-  --color-secondary-200: #bae6fd;
-  --color-secondary-300: #7dd3fc;
-  --color-secondary-400: #38bdf8;
-  --color-secondary-500: #0ea5e9;
-  --color-secondary-600: #0284c7;
-  --color-secondary-700: #0369a1;
-  --color-secondary-800: #075985;
-  --color-secondary-900: #0c4a6e;
-
-  /* Neutral - Zinc (Light Mode) */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f4f4f5;
-  --color-neutral-200: #e4e4e7;
-  --color-neutral-300: #d4d4d8;
-  --color-neutral-400: #a1a1aa;
-  --color-neutral-500: #71717a;
-  --color-neutral-600: #52525b;
-  --color-neutral-700: #3f3f46;
-  --color-neutral-800: #27272a;
-  --color-neutral-900: #18181b;
-  --color-neutral-950: #09090b;
-
-  /* Accent - Indigo */
-  --color-accent-50: #eef2ff;
-  --color-accent-100: #e0e7ff;
-  --color-accent-200: #c7d2fe;
-  --color-accent-300: #a5b4fc;
-  --color-accent-400: #818cf8;
-  --color-accent-500: #6366f1;
-  --color-accent-600: #4f46e5;
-  --color-accent-700: #4338ca;
-  --color-accent-800: #3730a3;
-  --color-accent-900: #312e81;
+  /* Custom Colors */
+  --color-background-alt: var(--background-alt);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-hover: var(--surface-hover);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-border-strong: var(--border-strong);
+  --color-border-muted: var(--border-muted);
+  --color-border-focus: var(--border-focus);
 
   /* Status Colors */
-  --color-success-50: #f0fdf4;
-  --color-success-100: #dcfce7;
-  --color-success-200: #bbf7d0;
-  --color-success-300: #86efac;
-  --color-success-400: #4ade80;
-  --color-success-500: #22c55e;
-  --color-success-600: #16a34a;
-  --color-success-700: #15803d;
-  --color-success-800: #166534;
-  --color-success-900: #14532d;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #06b6d4;
 
-  --color-warning-50: #fffbeb;
-  --color-warning-100: #fef3c7;
-  --color-warning-200: #fde68a;
-  --color-warning-300: #fcd34d;
-  --color-warning-400: #fbbf24;
-  --color-warning-500: #f59e0b;
-  --color-warning-600: #d97706;
-  --color-warning-700: #b45309;
-  --color-warning-800: #92400e;
-  --color-warning-900: #78350f;
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 
-  --color-error-50: #fef2f2;
-  --color-error-100: #fee2e2;
-  --color-error-200: #fecaca;
-  --color-error-300: #fca5a5;
-  --color-error-400: #f87171;
-  --color-error-500: #ef4444;
-  --color-error-600: #dc2626;
-  --color-error-700: #b91c1c;
-  --color-error-800: #991b1b;
-  --color-error-900: #7f1d1d;
-
-  --color-info-50: #ecfeff;
-  --color-info-100: #cffafe;
-  --color-info-200: #a5f3fc;
-  --color-info-300: #67e8f9;
-  --color-info-400: #22d3ee;
-  --color-info-500: #06b6d4;
-  --color-info-600: #0891b2;
-  --color-info-700: #0e7490;
-  --color-info-800: #155e75;
-  --color-info-900: #164e63;
+  /* Border Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 /* ============================================
-   LIGHT MODE (Default)
+   BASE COLORS - HEX VALUES
    ============================================ */
 :root {
-  /* Page Background */
-  --color-background: var(--color-neutral-50);
-  --color-background-alt: var(--color-neutral-100);
+  /* Custom Colors */
+  --background-alt: #f4f4f5;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-hover: #f4f4f5;
+  --text: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --text-inverse: #ffffff;
+  --border-strong: #d4d4d8;
+  --border-muted: #f4f4f5;
+  --border-focus: #3b82f6;
 
-  /* Surface Colors (Cards, Navbar, etc.) */
-  --color-surface: #ffffff;
-  --color-surface-elevated: #ffffff;
-  --color-surface-hover: var(--color-neutral-100);
-
-  /* Overlay */
-  --color-overlay: rgba(0, 0, 0, 0.5);
-  --color-overlay-light: rgba(255, 255, 255, 0.8);
-
-  /* Text Colors */
-  --color-text: var(--color-neutral-900);
-  --color-text-primary: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-600);
-  --color-text-tertiary: var(--color-neutral-500);
-  --color-text-muted: var(--color-neutral-400);
-  --color-text-inverse: #ffffff;
-
-  /* Border Colors */
-  --color-border: var(--color-neutral-200);
-  --color-border-strong: var(--color-neutral-300);
-  --color-border-muted: var(--color-neutral-100);
-  --color-border-focus: var(--color-primary-500);
-
-  /* Button Colors */
-  --color-btn-primary-bg: var(--color-primary-600);
-  --color-btn-primary-text: #ffffff;
-  --color-btn-primary-hover: var(--color-primary-700);
-
-  --color-btn-secondary-bg: var(--color-neutral-200);
-  --color-btn-secondary-text: var(--color-neutral-700);
-  --color-btn-secondary-hover: var(--color-neutral-300);
-
-  /* Link Colors */
-  --color-link: var(--color-primary-600);
-  --color-link-hover: var(--color-primary-700);
-  --color-link-active: var(--color-primary-800);
-
-  /* Shadow Colors */
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-color-strong: rgba(0, 0, 0, 0.15);
+  /* Standard Colors */
+  --radius: 0.625rem;
+  --background: #fafafa;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --popover: #ffffff;
+  --popover-foreground: #18181b;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #ef4444;
+  --secondary-foreground: #ffffff;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #3b82f6;
 }
 
 /* ============================================
    DARK MODE
    ============================================ */
 .dark {
-  /* Page Background */
-  --color-background: var(--color-neutral-950);
-  --color-background-alt: var(--color-neutral-900);
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --card: #18181b;
+  --card-foreground: #f4f4f5;
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #f87171;
+  --secondary-foreground: #ffffff;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #f4f4f5;
+  --destructive: #dc2626;
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #60a5fa;
 
-  /* Surface Colors */
-  --color-surface: var(--color-neutral-900);
-  --color-surface-elevated: var(--color-neutral-800);
-  --color-surface-hover: var(--color-neutral-800);
-
-  /* Overlay */
-  --color-overlay: rgba(0, 0, 0, 0.7);
-  --color-overlay-light: rgba(255, 255, 255, 0.1);
-
-  /* Text Colors */
-  --color-text: var(--color-neutral-100);
-  --color-text-primary: var(--color-neutral-100);
-  --color-text-secondary: var(--color-neutral-300);
-  --color-text-tertiary: var(--color-neutral-400);
-  --color-text-muted: var(--color-neutral-500);
-  --color-text-inverse: var(--color-neutral-900);
-
-  /* Border Colors */
-  --color-border: var(--color-neutral-800);
-  --color-border-strong: var(--color-neutral-700);
-  --color-border-muted: var(--color-neutral-800);
-  --color-border-focus: var(--color-primary-400);
-
-  /* Button Colors */
-  --color-btn-primary-bg: var(--color-primary-600);
-  --color-btn-primary-text: #ffffff;
-  --color-btn-primary-hover: var(--color-primary-500);
-
-  --color-btn-secondary-bg: var(--color-neutral-800);
-  --color-btn-secondary-text: var(--color-neutral-200);
-  --color-btn-secondary-hover: var(--color-neutral-700);
-
-  /* Link Colors */
-  --color-link: var(--color-primary-400);
-  --color-link-hover: var(--color-primary-300);
-  --color-link-active: var(--color-primary-200);
-
-  /* Shadow Colors */
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-strong: rgba(0, 0, 0, 0.5);
+  /* Dark Mode Custom Colors */
+  --background-alt: #18181b;
+  --surface: #18181b;
+  --surface-elevated: #27272a;
+  --surface-hover: #27272a;
+  --text: #f4f4f5;
+  --text-secondary: #d4d4d8;
+  --text-muted: #71717a;
+  --text-inverse: #18181b;
+  --border-strong: #3f3f46;
+  --border-muted: #27272a;
 }
 
 /* ============================================
-   TAILWIND THEME INTEGRATION
+   UTILITY CLASSES - CODE NIX CUSTOM
    ============================================ */
-@theme inline {
-  /* Primary Colors */
-  --color-primary-50: var(--color-primary-50);
-  --color-primary-100: var(--color-primary-100);
-  --color-primary-200: var(--color-primary-200);
-  --color-primary-300: var(--color-primary-300);
-  --color-primary-400: var(--color-primary-400);
-  --color-primary-500: var(--color-primary-500);
-  --color-primary-600: var(--color-primary-600);
-  --color-primary-700: var(--color-primary-700);
-  --color-primary-800: var(--color-primary-800);
-  --color-primary-900: var(--color-primary-900);
-  --color-primary-950: var(--color-primary-950);
-
-  /* Secondary Colors */
-  --color-secondary-50: var(--color-secondary-50);
-  --color-secondary-100: var(--color-secondary-100);
-  --color-secondary-200: var(--color-secondary-200);
-  --color-secondary-300: var(--color-secondary-300);
-  --color-secondary-400: var(--color-secondary-400);
-  --color-secondary-500: var(--color-secondary-500);
-  --color-secondary-600: var(--color-secondary-600);
-  --color-secondary-700: var(--color-secondary-700);
-  --color-secondary-800: var(--color-secondary-800);
-  --color-secondary-900: var(--color-secondary-900);
-
-  /* Neutral Colors */
-  --color-neutral-50: var(--color-neutral-50);
-  --color-neutral-100: var(--color-neutral-100);
-  --color-neutral-200: var(--color-neutral-200);
-  --color-neutral-300: var(--color-neutral-300);
-  --color-neutral-400: var(--color-neutral-400);
-  --color-neutral-500: var(--color-neutral-500);
-  --color-neutral-600: var(--color-neutral-600);
-  --color-neutral-700: var(--color-neutral-700);
-  --color-neutral-800: var(--color-neutral-800);
-  --color-neutral-900: var(--color-neutral-900);
-  --color-neutral-950: var(--color-neutral-950);
-
-  /* Semantic Colors */
-  --color-background: var(--color-background);
-  --color-surface: var(--color-surface);
-  --color-surface-elevated: var(--color-surface-elevated);
-  --color-text: var(--color-text);
-  --color-text-primary: var(--color-text-primary);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
-  --color-border: var(--color-border);
-  --color-border-muted: var(--color-border-muted);
-
-  /* Status Colors */
-  --color-success: var(--color-success-500);
-  --color-warning: var(--color-warning-500);
-  --color-error: var(--color-error-500);
-  --color-info: var(--color-info-500);
-
-  /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
-body {
-  background: var(--color-background);
-  color: var(--color-text);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* ============================================
-   UTILITY CLASSES (CSS Variable Based)
-   ============================================ */
-
-/* Background utilities */
 .bg-background {
-  background-color: var(--color-background);
+  background-color: var(--background);
 }
 
 .bg-background-alt {
-  background-color: var(--color-background-alt);
+  background-color: var(--background-alt);
 }
 
 .bg-surface {
-  background-color: var(--color-surface);
+  background-color: var(--surface);
 }
 
 .bg-surface-elevated {
-  background-color: var(--color-surface-elevated);
+  background-color: var(--surface-elevated);
 }
 
 .bg-surface-hover {
-  background-color: var(--color-surface-hover);
+  background-color: var(--surface-hover);
 }
 
 .bg-overlay {
-  background-color: var(--color-overlay);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Text utilities */
 .text-text {
-  color: var(--color-text);
-}
-
-.text-text-primary {
-  color: var(--color-text-primary);
+  color: var(--text);
 }
 
 .text-text-secondary {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
 }
 
 .text-text-muted {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
 }
 
 .text-text-inverse {
-  color: var(--color-text-inverse);
+  color: var(--text-inverse);
 }
 
-/* Border utilities */
 .border-border {
-  border-color: var(--color-border);
+  border-color: var(--border);
 }
 
 .border-border-muted {
-  border-color: var(--color-border-muted);
+  border-color: var(--border-muted);
 }
 
 .border-border-strong {
-  border-color: var(--color-border-strong);
+  border-color: var(--border-strong);
 }
 
-/* Shadow utilities */
 .shadow-custom {
-  box-shadow: 0 4px 6px -1px var(--shadow-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .shadow-custom-lg {
-  box-shadow: 0 10px 15px -3px var(--shadow-color);
-}
-
-/* Hover utilities */
-.hover-bg-surface:hover {
-  background-color: var(--color-surface-hover);
-}
-
-.hover-text-primary:hover {
-  color: var(--color-text-primary);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
-   ANIMATIONS
+   BASE LAYER - WITH @APPLY
    ============================================ */
-@keyframes fadeInScroll {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: rgba(59, 130, 246, 0.5);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
   }
-}
-
-.scroll-fade {
-  opacity: 0;
-  animation: fadeInScroll 1s ease-out both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-}
-
-@keyframes fadeZoomScroll {
-  from {
-    opacity: 0;
-    transform: scale(0.8) translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.scroll-zoom {
-  opacity: 0;
-  animation: fadeZoomScroll 1s ease-out both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-}
-
-@keyframes random-move {
-  0% {
-    transform: translate(0, 0);
-  }
-
-  25% {
-    transform: translate(10vw, 5vh);
-  }
-
-  50% {
-    transform: translate(-5vw, 15vh);
-  }
-
-  75% {
-    transform: translate(10vw, -10vh);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-.random-move {
-  animation: random-move 50s ease-in-out infinite alternate;
 }

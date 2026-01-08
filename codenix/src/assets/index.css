@@ -9,3 +9,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.main-padding {
+    padding-left: 10%;
+    padding-right: 10%;
+}
